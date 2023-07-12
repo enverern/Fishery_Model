@@ -1,11 +1,10 @@
-function t = armijo_back(data,u,d,alpha,itmax)
+function t = armijo_back(data,u,d,alpha,itmax,upperU)
     % armijo_back: function that performs a line−search backtracking strategy based on the Armijo rule
     % Input :
     % data  : structure that contains all the data of the problem
     % u, d  : current iteration and direction
     % alpha : parameter for the Armijo condition
     % itmax : maximum number of iterations
-    upperU = 50;
     t=1;
     J = data.J;
     f = @(a) J(projecting_u(u+a.*d, 0,upperU));
